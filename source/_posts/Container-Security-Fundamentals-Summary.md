@@ -9,7 +9,7 @@ tags:
 
 Today, Kubecon EU 2020 has started as an online event because of the pandemic so I’m starting a series of posts summarizing the most important topics covered. Hopefully, you found this helpful.
 
-I'm starting with the presentation called [ Help! My Cluster Is On The Internet: Container Security Fundamentals](https://kccnceu20.sched.com/event/ZetO/help-my-cluster-is-on-the-internet-container-security-fundamentals-samuel-davidson-google) by Samuel Davidson from Google.
+I'm starting with the presentation called [ Help! My Cluster Is On The Internet: Container Security Fundamentals](https://kccnceu20.sched.com/event/ZetO/help-my-cluster-is-on-the-internet-container-security-fundamentals-samuel-davidson-google) by [Samuel Davidson](https://www.linkedin.com/in/samuelbdavidson/) from Google. All the credits for him.
 
 There are 4 areas where we can improve our security related to Kubernetes. These areas are Containers, Pods, Cluster and User.
 
@@ -31,9 +31,9 @@ There are 4 areas where we can improve our security related to Kubernetes. These
   - #1 - Don't use hostPath:
     - Avoid using the Node’s filesystem. It can be edited for other pods, apps, etc.
     - There are better alternatives like _PersistentVolumeClaim_.
-  - #2 - Don't use _hostNetwork_
+  - #2 - Don't use _hostNetwork_:
     - Binds the pod to the Node’s network. Allows localhost communication with K8s infrastructure components running on the node.
-  - #3 - Be conscious of your pod's Service Account
+  - #3 - Be conscious of your pod's Service Account:
     - **All pods** have a service account by default even if you don’t set one in the _podSpec_.
     - Then, the credentials for your pods service account are automatically mounted within its filesystem and available to the container which can be owned by an attacker !!
   - #4 Avoid privileged containers in your pods:
@@ -52,7 +52,7 @@ There are 4 areas where we can improve our security related to Kubernetes. These
     - Bugs and vulnerabilities are fixed all the time, also Kubernetes provides a secure incremental way to update the nodes of the cluster one by one.
   - #2 - Isolate your cluster from the Internet:
     - Your nodes should not be on the internet with a publicly addressable IP. Use a _LoadBalancer_ for that.
-  - #3 - For your secrets use secrets
+  - #3 - For your secrets use secrets:
     - Great for access keys, passwords, tokens, etc. Stored in memory, never saved to a node.
     - The security of Secrets comes from _RBAC_ and using many namespaces as security boundaries.
   - #4 Don’t use basic auth:
@@ -62,11 +62,13 @@ There are 4 areas where we can improve our security related to Kubernetes. These
 - User
   - #1 - All your devs and robots (CICD, automation) should have a unique identity:
     - Every person or service account should have a unique identity to interact with the cluster.
-  - #2 - Use _RBAC_ and groups
+  - #2 - Use _RBAC_ and groups:
     -  Implement the [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in your cluster with RBAC’s fine-grained controls in an easy way.
- -  #3 - Using RBAC, bind policies against groups not individuals.
+ -  #3 - Using RBAC, bind policies against groups not individuals:
     -  Use _Roles_ and _Bindings_ within the cluster:
     -  ![](Container-Security-Fundamentals-Summary/2020-08-17-11-07-08.png)
-  - #4 - Use a policy agent to protect your cluster
+  - #4 - Use a policy agent to protect your cluster:
     - Typically a Kubernetes [AdmissionController](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) which selectively allows/denies Kubernetes resource requests based on rules (or policies)
-    - It can be used Gatekeeper. It's very easy to configure and make it works.
+    - It can be used [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) for this job. It's very easy to configure and make it works.
+
+The author provided a summary document from the talk [here](https://docs.google.com/document/d/1OefvSpURuOHdNNiwbRXmhPiRUFsYnllgMPDaVqXRkh4/edit#heading=h.lroslfbjn64r) if you have any question related to the talk.
