@@ -1,16 +1,25 @@
-FROM alpine:3.10
-RUN apk add --no-cache curl bash
-COPY download-from-github.sh /
-RUN bash /download-from-github.sh
+FROM node:14.8.0-buster-slim
 
-FROM mhart/alpine-node
-RUN npm install hexo-cli -g
-WORKDIR /blog/
-COPY docker-entrypoint.sh /entrypoint.sh
-RUN \
-    hexo init hexo-blog
+ENV HEXO_PORT=4000
+EXPOSE ${HEXO_SERVER_PORT}
 
-COPY --from=0 /opt/klaudioz.github.io-master /blog/public
-EXPOSE 4000
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["server"]
+RUN apt-get update && \
+    apt-get install git -y
+RUN npm install hexo-cli@4.2.0 -g \
+                hexo-reading-time \
+                hexo-generator-seo-friendly-sitemap \
+                hexo-related-popular-posts \
+                hexo-tag-twitter \
+                hexo-generator-searchdb \
+                hexo-generator-search \
+                hexo-github-card \
+                hexo-oembed \
+                hexo-asset-image \
+                hexo-optimize --save && \
+                echo "*** INSTALLED: hexo and modules ***"
+
+WORKDIR /app
+RUN git clone https://github.com/Klaudioz/hexo-blog.git /app && \
+    npm install
+
+CMD hexo server -d -p ${HEXO_PORT}
