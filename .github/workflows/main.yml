@@ -7,6 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
+    - uses: actions/checkout@v2
     - name: docker-build-push-gcr-update-gke-deployment-action
       uses: shashank0202/docker-build-push-gcr-update-gke-deployment-action@1.4
       with:
