@@ -15,7 +15,10 @@ Testing tweet
 
 {% twitter https://twitter.com/learnk8s/status/1294023489951805444 %}
 
-# Image test
+# Code test
+{% gdemo_terminal 'cd /usr/bin;./node ./demo' '250px' 'bash' '500' '$' 'demo-teriminal' %}
+Hello World!
+{% endgdemo_terminal %}
 
 
 # GitHub card test user
