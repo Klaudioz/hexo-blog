@@ -64,7 +64,7 @@ There are 4 areas where we can improve our security related to Kubernetes. These
     - Every person or service account should have a unique identity to interact with the cluster.
   - #2 - Use _RBAC_ and groups:
     -  Implement the [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in your cluster with RBAC’s fine-grained controls in an easy way.
- -  #3 - Using RBAC, bind policies against groups not individuals:
+ -  #3 - Using _RBAC_, bind policies against groups not individuals:
     -  Use _Roles_ and _Bindings_ within the cluster:
     -  ![](Container-Security-Fundamentals-Summary/2020-08-17-11-07-08.png)
   - #4 - Use a policy agent to protect your cluster:
