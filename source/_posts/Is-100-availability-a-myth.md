@@ -18,3 +18,5 @@ I’ve put some invented figures which are giving a good idea about what you’l
 Seeing the graph, my recommendation is to find the **inflection point** between the costs and availability. We can calculate it with the **second derivative** of the graph.
 
 Another important question is: Maybe right now is impossible to get 100% HA but what about in the future?. It’s very to predict anything, specially in this industry where the knowledge is changing so fast. The only constant is the change and complexity going up so, in my opinion, it’ll be very difficult for me to see this utopia as a reality, during my lifetime 😬
+
+This post is based in the last episode of [DevOps Paradox](https://www.devopsparadox.com/episodes/high-availability-does-not-mean-100-availability-70/) podcast which I can highly recommend you.
