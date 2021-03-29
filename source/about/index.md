@@ -5,7 +5,7 @@ date: 2020-08-15 11:15:25
 
 Hello everybody 👏🏻 and welcome to my blog !!
 
-My name is Claudio and I'm a DevOps/SRE/Cloud Engineer .. (whatever) who loves to automating things nd implement workflows integrating different technologies.
+My name is Claudio and I'm a DevOps/SRE/Cloud Engineer .. (whatever) who loves to automating things and implement workflows integrating different technologies.
 
 I’ll share with you what I’m learning because I believe in learning in public, building a feedback loop and establishing a community.
 
@@ -22,7 +22,6 @@ About my hobbies I can list:
 
 - Futbol !! ⚽. I love to play and to watch games and play Fantasy PL.
 - I'm very interested in Astrophotography  🚀 but right now I'm a newbie.
-- Poker (I played online more than 1.000.000 hands where I was finishing my college 50 -> 70k USD)
+- Poker (I played online more than 1.000.000 hands where I was finishing my college 50 -> 70.000 USD)
 - Home automation
 - Quantified self
-- 
